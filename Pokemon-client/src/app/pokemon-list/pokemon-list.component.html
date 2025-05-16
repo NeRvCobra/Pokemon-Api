@@ -1,0 +1,11 @@
+<div class="wrapper" *ngIf="!loading; else spinner">
+  <mat-card class="poke-card" *ngFor="let p of pokemons"
+            (click)="openDetails(p)">
+    <img mat-card-image [src]="p.sprite" [alt]="p.name">
+    <mat-card-title>{{ p.name | titlecase }}</mat-card-title>
+  </mat-card>
+</div>
+
+<ng-template #spinner>
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</ng-template>

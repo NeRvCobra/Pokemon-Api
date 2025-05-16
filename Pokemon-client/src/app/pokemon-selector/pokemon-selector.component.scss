@@ -1,0 +1,18 @@
+:host { display: flex; justify-content: center; padding-top: 4rem; }
+
+.frame {
+  width: 360px; padding: 2.2rem 2.5rem 2.5rem;
+  border: 6px solid #2b2b2b; border-radius: 24px;
+  background: linear-gradient(#ea1d25 0 45%, #ffffff 45% 100%);
+  position: relative; box-shadow: 0 8px 20px rgba(0,0,0,.25);
+
+  h2 { margin-top: 0; color: #fafafa; text-shadow: 1px 1px 2px rgba(0,0,0,.6); }
+  .full { width: 100%; } button { margin-top: 1.25rem; }
+  .search-box { width: 100%; }
+}
+
+.frame::before {
+  content:''; position:absolute; top:calc(45% - 18px); left:50%;
+  transform:translateX(-50%); width:92px; height:36px;
+  border:6px solid #2b2b2b; border-radius:20px; background:#fff;
+}

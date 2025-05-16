@@ -1,0 +1,31 @@
+<div class="frame">
+  <h2>Selecciona los Pokémon</h2>
+
+  <mat-form-field appearance="outline" class="full">
+    <mat-label>Buscar / seleccionar</mat-label>
+
+    <mat-select [formControl]="control" multiple>
+
+      <!-- Header con buscador -->
+      <ng-container matSelectHeader>
+        <mat-form-field class="search-box">
+          <input matInput placeholder="Buscar…"
+                 [formControl]="searchCtrl" autocomplete="off">
+        </mat-form-field>
+      </ng-container>
+
+      <!-- Opciones -->
+      <mat-option *ngFor="let name of (filtered$ | async)"
+                  [value]="name">{{ name | titlecase }}</mat-option>
+
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary"
+          (click)="submit()" [disabled]="!control.value?.length">
+    Mostrar tarjetas
+  </button>
+
+  <mat-progress-spinner *ngIf="loading"
+                        diameter="40" mode="indeterminate"></mat-progress-spinner>
+</div>

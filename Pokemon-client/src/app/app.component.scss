@@ -1,0 +1,28 @@
+/* centro absoluto */
+.center-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #fff 0%, #f2f2f2 70%);
+  }
+  
+  /* "Pokedex" card */
+  .pokedex {
+    padding: 2rem;
+    width: 350px;
+    border-radius: 24px;
+    box-shadow: 0 10px 24px rgba(0,0,0,.15);
+    background: linear-gradient(135deg, #ff2d2d 0%, #ffd700 100%);
+    color: #fffffe;
+    text-align: center;
+  
+    h1 { margin-top: 0; font-family: 'Pokemon Solid', sans-serif; }
+  }
+  
+  /* Font opcional — descarga o usa Google Fonts */
+  @font-face {
+    font-family: 'Pokemon Solid';
+    src: url('/assets/fonts/pokemon_solid.ttf') format('truetype');
+  }
+  

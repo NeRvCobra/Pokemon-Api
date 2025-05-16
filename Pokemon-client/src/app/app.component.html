@@ -1,0 +1,13 @@
+<div class="center-wrapper" *ngIf="stage==='select'">
+    <mat-card class="pokedex">
+      <h1>Selecciona los Pokémon</h1>
+      <app-pokemon-selector (selected)="load($event)"></app-pokemon-selector>
+    </mat-card>
+  </div>
+  
+  <!-- cuando muestres las tarjetas -->
+  <ng-container *ngIf="stage==='list'">
+    <button mat-stroked-button color="primary" (click)="stage='select'">← Regresar</button>
+    <app-pokemon-list [names]="names"></app-pokemon-list>
+  </ng-container>
+  
