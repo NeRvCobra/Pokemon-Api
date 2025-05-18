@@ -5,10 +5,15 @@ import { Observable } from 'rxjs';
 export interface Pokemon {
   name: string;
   id: number;
+  sprite: string;
   height: number;
   weight: number;
-  sprite: string;
+  types: string[];
+  stats: { [k: string]: number };
+  evolution: { name: string; sprite: string }[];
+  color: string;
 }
+
 
 @Injectable({ providedIn: 'root' })
 export class PokemonService {

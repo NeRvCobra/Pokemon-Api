@@ -1,10 +1,29 @@
-<div class="wrapper" *ngIf="!loading; else spinner">
-  <mat-card class="poke-card" *ngFor="let p of pokemons"
-            (click)="openDetails(p)">
-    <img mat-card-image [src]="p.sprite" [alt]="p.name">
-    <mat-card-title>{{ p.name | titlecase }}</mat-card-title>
-  </mat-card>
-</div>
+<ng-container *ngIf="!loading; else spinner">
+  <ng-container *ngFor="let group of groupedPokemons">
+    <div class="group-frame"
+        [ngStyle]="{
+          'border-color': group.color,
+          'background-color': group.color + '33'
+        }">
+      <h2 class="group-header"
+          [ngStyle]="{ color: group.color }">
+        {{ group.color | titlecase }}
+        <small>({{ group.pokemons.length }})</small>
+      </h2>
+      <div class="wrapper">
+        <mat-card class="poke-card"
+                  *ngFor="let p of group.pokemons"
+                  (click)="openDetails(p)">
+          <img mat-card-image [src]="p.sprite" [alt]="p.name">
+          <mat-card-title>{{ p.name | titlecase }}</mat-card-title>
+          <mat-card-subtitle [ngStyle]="{'color': p.color}">
+            Color: {{ p.color | titlecase }}
+          </mat-card-subtitle>
+        </mat-card>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
 
 <ng-template #spinner>
   <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>

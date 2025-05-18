@@ -1,6 +1,25 @@
 <div class="frame">
   <h2>Selecciona los Pokémon</h2>
 
+  <div class="select-all">
+    <button mat-button
+            (click)="selectAll()"
+            [disabled]="!filteredList.length"
+            class="select-all-button">
+      {{ allSelected ? 'Deseleccionar todos' : 'Seleccionar todos' }}
+      ({{ filteredList.length }})
+    </button>
+  </div>
+
+  <mat-form-field appearance="outline" class="full">
+    <mat-label>Filtrar por tipo</mat-label>
+    <mat-select [formControl]="typeCtrl">
+      <mat-option *ngFor="let t of types" [value]="t">
+        {{ t === 'all' ? 'Todos' : (t | titlecase) }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <mat-form-field appearance="outline" class="full">
     <mat-label>Buscar / seleccionar</mat-label>
 

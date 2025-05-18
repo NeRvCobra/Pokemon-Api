@@ -16,3 +16,19 @@
   transform:translateX(-50%); width:92px; height:36px;
   border:6px solid #2b2b2b; border-radius:20px; background:#fff;
 }
+
+/* pokemon-selector.component.scss */
+.select-all-button {
+  color: black !important;  /* override de Angular Material */
+  font-weight: 600;
+  margin-bottom: 1rem; // agrega espacio debajo del botón
+}
+
+.select-all {
+  text-align: center;
+  margin-bottom: 1rem;
+
+  button {
+    font-weight: 600;
+  }
+}
