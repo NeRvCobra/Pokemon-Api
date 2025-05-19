@@ -16,7 +16,7 @@
                   (click)="openDetails(p)">
           <img mat-card-image [src]="p.sprite" [alt]="p.name">
           <mat-card-title>{{ p.name | titlecase }}</mat-card-title>
-          <mat-card-subtitle [ngStyle]="{'color': p.color}">
+          <mat-card-subtitle>
             Color: {{ p.color | titlecase }}
           </mat-card-subtitle>
         </mat-card>
